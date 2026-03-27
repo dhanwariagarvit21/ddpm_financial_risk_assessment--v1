@@ -1,0 +1,9 @@
+project:
+  output-dir: _docs
+
+website:
+  title: "ddpm_backtest"
+  site-url: "https://garvit.github.io/ddpm_backtest"
+  description: "DDPM-based financial risk model for generating market returns and estimating VaR"
+  repo-branch: main
+  repo-url: "https://github.com/garvit/ddpm_backtest"

@@ -1,0 +1,17 @@
+[DEFAULT]
+
+repo = ddpm_proj
+lib_name = lib_ddpm
+version = 0.0.1
+min_python = 3.10
+license = apache2
+
+nbs_path = nbs
+lib_path = lib_ddpm
+
+doc_path = _docs
+tst_flags = notest
+
+branch = main
+author = Garvit
+description = DDPM financial risk model
