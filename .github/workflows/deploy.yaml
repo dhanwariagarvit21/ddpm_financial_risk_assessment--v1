@@ -28,3 +28,4 @@ jobs:
           ghtoken: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
           torch_cpu: true
+          
