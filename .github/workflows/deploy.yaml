@@ -8,6 +8,7 @@ on:
   push:
     branches: [ "main", "master" ]
   workflow_dispatch:
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -27,7 +28,3 @@ jobs:
           ghtoken: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
           torch_cpu: true
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps: [uses: answerdotai/workflows/quarto-ghp@master]
