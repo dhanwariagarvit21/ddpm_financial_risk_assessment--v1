@@ -25,6 +25,7 @@ statuses = [ '1 - Planning', '2 - Pre-Alpha', '3 - Alpha',
 py_versions = '3.6 3.7 3.8 3.9 3.10 3.11 3.12 3.13'.split()
 
 requirements = shlex.split(cfg.get('requirements', ''))
+requirements.append("setuptools>=68.0")
 if cfg.get('pip_requirements'): requirements += shlex.split(cfg.get('pip_requirements', ''))
 min_python = cfg['min_python']
 dev_requirements = (cfg.get('dev_requirements') or '').split()
