@@ -20,13 +20,17 @@ jobs:
           python-version: '3.12'
 
       - name: Install build dependencies
-        run: pip install --upgrade setuptools
+        run: pip install --upgrade setuptools wheel pip
+
       - name: Disable pip isolated builds
-        run: echo "[global]" > /etc/pip.conf && echo "no-build-isolation = true" >> /etc/pip.conf
+        run: |
+          mkdir -p ~/.config/pip
+          echo "[global]" > ~/.config/pip/pip.conf
+          echo "no-build-isolation = true" >> ~/.config/pip/pip.conf
+
       - uses: answerdotai/workflows/quarto-ghp@master
         with:
           version: 3.12
           ghtoken: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
           torch_cpu: true
-          
