@@ -11,4 +11,23 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+
+      - name: Install build dependencies
+        run: pip install --upgrade setuptools
+
+      - uses: answerdotai/workflows/quarto-ghp@master
+        with:
+          version: 3.12
+          ghtoken: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          torch_cpu: true
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
     steps: [uses: answerdotai/workflows/quarto-ghp@master]
