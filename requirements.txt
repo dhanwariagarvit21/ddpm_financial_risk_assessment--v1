@@ -4,3 +4,4 @@ torch
 matplotlib
 tqdm
 scikit-learn
+setuptools>=68.0
