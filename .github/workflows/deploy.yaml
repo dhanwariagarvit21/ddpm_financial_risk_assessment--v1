@@ -19,18 +19,21 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Install build dependencies
-        run: pip install --upgrade setuptools wheel pip
-
-      - name: Disable pip isolated builds
+      - name: Install dependencies
         run: |
-          mkdir -p ~/.config/pip
-          echo "[global]" > ~/.config/pip/pip.conf
-          echo "no-build-isolation = true" >> ~/.config/pip/pip.conf
+          pip install --upgrade pip setuptools wheel
+          pip install 'nbdev<3'
+          pip install -e '.[dev]' --extra-index-url https://download.pytorch.org/whl/cpu
 
-      - uses: answerdotai/workflows/quarto-ghp@master
+      - name: Install Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Build docs without executing notebooks
+        run: nbdev_docs --no_exec
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          version: 3.12
-          ghtoken: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_docs
           publish_branch: gh-pages
-          torch_cpu: true
