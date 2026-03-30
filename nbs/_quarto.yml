@@ -1,6 +1,9 @@
 project:
   type: website
 
+execute:
+  enabled: false
+
 format:
   html:
     theme: cosmo
