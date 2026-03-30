@@ -29,7 +29,9 @@ jobs:
         uses: quarto-dev/quarto-actions/setup@v2
 
       - name: Build docs without executing notebooks
-        run: nbdev_docs --no_exec
+        run: nbdev_docs
+        env:
+          NBDEV_EXECUTE: skip 
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
