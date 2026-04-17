@@ -135,5 +135,13 @@ jupyter VaR_ES.ipynb
 - FastAI *Practical Deep Learning for Coders* — Stable Diffusion lectures
 
 ---
+## Limitations of v1
+
+The initial version evaluated generated samples by comparing
+their marginal distributions to real data.
+
+This ignored temporal dependencies (autocorrelation, clustering),
+leading to misleadingly strong results.
+
 
 *Research and educational purposes only. Not financial advice.*
