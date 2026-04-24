@@ -26,12 +26,8 @@ class FiLMLayer(nn.Module):
         super().__init__()
         self.scale = nn.Linear(cond_dim, hidden_dim)
         self.shift = nn.Linear(cond_dim, hidden_dim)
-        nn.init.zeros_(self.scale.weight)   
-        nn.init.zeros_(self.shift.weight)   
-        nn.init.ones_(self.scale.bias)      
+        nn.init.zeros_(self.scale.weight); nn.init.ones_(self.scale.bias)
+        nn.init.zeros_(self.shift.weight); nn.init.zeros_(self.shift.bias)
 
     def forward(self, x, cond_emb):
-        scale = self.scale(cond_emb)
-        shift = self.shift(cond_emb)
-        scale = 1 + torch.tanh(scale - 1)
-        return x * scale + shift
+        return x * (1 + torch.tanh(self.scale(cond_emb) - 1)) + self.shift(cond_emb)
