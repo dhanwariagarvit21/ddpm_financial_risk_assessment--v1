@@ -34,7 +34,7 @@ def noisify(T, x0, alphas_bar):
     xt    = torch.sqrt(a_bar) * x0 + torch.sqrt(1 - a_bar) * eps
     return xt, t, eps
 
-def split_context(context):
+def split_context(context, MARKET_DIM=25):
     return context[:, :MARKET_DIM], context[:, MARKET_DIM:]
 
 T          = 100
