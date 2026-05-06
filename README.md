@@ -1,4 +1,5 @@
 
+
 # GARCH-DDPM Financial Risk Assessment
 
 A regime-conditional denoising diffusion probabilistic model for generating
@@ -279,7 +280,7 @@ calibration.
 VaR99/VaR95 ratio: 1.78 (training residual ratio: 1.78 — exact match,
 confirming the quantile map is correctly calibrated).
 <img width="694" height="396" alt="final_plots" src="https://github.com/user-attachments/assets/7b01c173-04d9-4c18-864b-5fdbf4143374" />
-
+<img width="1162" height="428" alt="no clamp Garch -ddpm predictive VaR Backtest" src="https://github.com/user-attachments/assets/46223d18-1ef3-4d42-a933-362473fb676f" />
 The PIT histogram is approximately uniform across [0, 1], confirming
 the model is well-calibrated across the full return distribution, not
 just at the tail quantiles tested by Kupiec.
